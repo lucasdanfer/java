@@ -1,5 +1,7 @@
 package br.com.lucasdanfer.springmvc.controller;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import static org.springframework.web.context.WebApplicationContext.SCOPE_REQUEST;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +30,7 @@ public class CarrinhoComprasController {
     @RequestMapping("/add")
     public ModelAndView add(Integer produtoId, TipoPreco tipoPreco) {
 
-        ModelAndView modelAndView = new ModelAndView("redirect:/produtos");
+        ModelAndView modelAndView = new ModelAndView("redirect:/carrinho");
         CarrinhoItem carrinhoItem = criaItem(produtoId,tipoPreco);
 
         carrinho.add(carrinhoItem);
@@ -42,5 +44,16 @@ public class CarrinhoComprasController {
         CarrinhoItem carrinhoItem = new CarrinhoItem(produto, tipoPreco);
 
         return carrinhoItem;
+    }
+    
+    @RequestMapping(method=GET)
+    public ModelAndView itens(){
+        return new ModelAndView("/carrinho/itens");
+    }
+    
+    @RequestMapping(value="/remover", method=POST)
+    public ModelAndView remover(Integer produtoId, TipoPreco tipoPreco){
+        carrinho.remover(produtoId, tipoPreco);
+        return new ModelAndView("redirect:/carrinho");
     }
 }
