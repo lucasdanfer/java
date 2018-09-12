@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import br.com.lucasdanfer.springmvc.model.Preco;
 import br.com.lucasdanfer.springmvc.model.Produto;
+import br.com.lucasdanfer.springmvc.model.TipoPreco;
 
 @Component
 public class ProdutoDAO {
@@ -25,6 +26,10 @@ public class ProdutoDAO {
         produtos.add(new Produto(2, "Vitória", "Alencar Pereira", 120, getPrecos()));
         produtos.add(new Produto(3, "Lucas", "Yoshioka", 80, getPrecos()));
         
+    }
+    
+    public BigDecimal somaPrecosPorTipo(TipoPreco tipoPreco) {
+        return new BigDecimal(1000);
     }
 
     private ArrayList<Preco> getPrecos() {
