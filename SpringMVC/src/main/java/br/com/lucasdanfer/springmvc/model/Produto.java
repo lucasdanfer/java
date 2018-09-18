@@ -1,6 +1,7 @@
 package br.com.lucasdanfer.springmvc.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class Produto {
     private Calendar dataLancamento;
     private String sumarioPath;
     
-    private List<Preco> precos;
+    private List<Preco> precos = new ArrayList<Preco>();
     
     public Produto() {
         super();

@@ -4,13 +4,12 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import br.com.lucasdanfer.springmvc.builders.ProdutoBuilder;
 import br.com.lucasdanfer.springmvc.config.DataSourceConfigurationTest;
@@ -26,7 +25,6 @@ public class ProdutoDAOTest {
     private ProdutoDAO produtoDao;
 
     @Test
-    @Transactional
     public void deveSomarTodosPrecosPorTipoLivro() {        
 
         List<Produto> livrosImpressos = ProdutoBuilder

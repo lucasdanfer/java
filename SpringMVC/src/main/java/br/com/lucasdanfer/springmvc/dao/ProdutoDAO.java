@@ -29,7 +29,7 @@ public class ProdutoDAO {
     }
     
     public BigDecimal somaPrecosPorTipo(TipoPreco tipoPreco) {
-        return new BigDecimal(1000);
+        return new BigDecimal(1000).setScale(2);
     }
 
     private ArrayList<Preco> getPrecos() {

@@ -1,4 +1,4 @@
-package br.com.lucasdanfer.springmvc.controller;
+package br.com.lucasdanfer.springmvc.model;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
