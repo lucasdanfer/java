@@ -2,6 +2,7 @@ package br.com.lucasdanfer.springmvc.config;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.cache.CacheManager;
@@ -15,6 +16,8 @@ import org.springframework.format.datetime.DateFormatter;
 import org.springframework.format.datetime.DateFormatterRegistrar;
 import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartResolver;
@@ -121,6 +124,23 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     @Bean
     public LocaleResolver localeResolver(){
         return new CookieLocaleResolver();
+    }
+    
+    @Bean
+    public MailSender mailSender(){
+        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+
+        mailSender.setHost("smtp.gmail.com");
+        mailSender.setUsername("lucas.danfer@gmail.com");
+        mailSender.setPassword("SAI_DAKI_CHINES_OTARIO");
+        mailSender.setPort(587);
+
+        Properties mailProperties = new Properties();
+        mailProperties.put("mail.smtp.auth", true);
+        mailProperties.put("mail.smpt.starttls.enable", true);
+
+        mailSender.setJavaMailProperties(mailProperties);
+        return mailSender;
     }
     
 }
