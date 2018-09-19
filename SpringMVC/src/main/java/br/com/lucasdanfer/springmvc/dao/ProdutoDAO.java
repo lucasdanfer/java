@@ -51,6 +51,10 @@ public class ProdutoDAO {
     
     public Produto find(Integer id) {
         
+        if (id == 10) {
+            throw new RuntimeException("User not Found");
+        }
+        
         for (Produto p: produtos) {
             if (p.getId() == id) {
                 return p;
