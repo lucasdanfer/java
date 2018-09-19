@@ -18,7 +18,7 @@ import br.com.lucasdanfer.springmvc.model.TipoPreco;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {ProdutoDAO.class, DataSourceConfigurationTest.class})
-@ActiveProfiles("test")
+@ActiveProfiles("test") 
 public class ProdutoDAOTest {
 
     @Autowired
